@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/components/header.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <header-component></header-component>
+    <main>
+      <h1>Some Test</h1>
+      some more
+      <button id="test">hi</button>
+    </main>
+    <footer>by me</footer>
+  </body>
+  <script src="js/script.js"></script>
+  <style>
+    body {
+      width: 600px;
+      /* top bothom / left right */
+      margin: 0 auto;
+      background-color: #ff9500;
+      /* top, right, bottom, and left padding */
+      padding: 0 20px 20px 20px;
+
+      /* The first pixel value sets the horizontal offset of the shadow from the text: how far it moves across.
+    The second pixel value sets the vertical offset of the shadow from the text: how far it moves down.
+    The third pixel value sets the blur radius of the shadow. A larger value produces a more fuzzy-looking shadow.
+    The fourth value sets the base color of the shadow. */
+      border: 5px solid black;
+    }
+    h1 {
+      margin: 0;
+      padding: 20px 0;
+      color: #00539f;
+      text-shadow: 3px 3px 1px black;
+    }
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  </style>
+</html>
