@@ -1,0 +1,16 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --header-bg: #a815a8;
+}
+/* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --header-bg: #44a815;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
