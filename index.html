@@ -9,6 +9,18 @@
   </head>
   <body>
     <style>
+      .darkb {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        background-color: #3f9c1b;
+        border-radius: 8px;
+        border: 1px solid #1f1f28; /* or any consistent color */
+        padding: 0;
+        cursor: pointer;
+      }
       header {
         background: var(--header-bg);
         position: sticky;
@@ -36,9 +48,74 @@
         font-size: 1.2rem;
         margin: 0;
       }
+
+      .dropdown-menu {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        width: 200px;
+        display: none;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      #nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .icon-container {
+        display: inline-block;
+        width: 38px; /* Set to 40px to match the size of the sun and moon icons */
+        height: 38px; /* Set to 40px */
+        background-color: transparent; /* Make background transparent */
+        border: 1px solid #ceebc2; /* Apply a border (set color to green or any color you want) */
+        border-radius: 8px; /* Rounded corners for the box */
+        display: flex;
+        justify-content: center; /* Center the icon horizontally */
+        align-items: center; /* Center the icon vertically */
+        transition: border-color 0.3s ease; /* Smooth transition for border color change */
+      }
+      .dropdown-menu li {
+        list-style: none;
+        padding: 0.5rem 1rem;
+      }
+
+      /* SVG Color based on theme */
+      .icon-container svg path {
+        stroke: #3f9c1b; /* Default stroke color (matches the border) */
+      }
+      .dropdown-menu a {
+        text-decoration: none;
+        color: var(--black);
+        display: block;
+        padding: 0.5rem;
+      }
+      .hello {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative; /* Ensures dropdown is positioned relative to this container */
+      }
+
+      .dropdown-menu a:hover {
+        background: var(--accent-light);
+      }
+
+      .dropdown-menu.active {
+        display: flex;
+      }
       @media (max-width: 720px) {
         .internal-links {
           display: none;
+        }
+        #nav-toggle {
+          display: block; /* Show button on mobile */
         }
       }
     </style>
@@ -50,32 +127,127 @@
           <a href="work.html">Work</a>
           <a href="contact.html">Contact</a>
         </div>
-        <button id="test" onclick="toggleTheme()"></button>
+        <div class="hello">
+          <button
+            onclick="toggleDropdownMenu()"
+            id="nav-toggle"
+            aria-label="Toggle Navigation"
+          >
+            <div class="icon-container">
+              <!-- SVG for the hamburger menu icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+              >
+                <path
+                  d="M3 6h18M3 12h18M3 18h18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </button>
+
+          <div class="dropdown-menu">
+            <li><a href="/personal-blog/">Home</a></li>
+            <li><a href="/personal-blog/blog">Blog</a></li>
+            <li><a href="/personal-blog/about">About</a></li>
+            <li><a href="/personal-blog/tags">Tags</a></li>
+          </div>
+          <button class="darkb" id="test" onclick="toggleTheme()"></button>
+        </div>
       </nav>
     </header>
     <script>
+      function toggleDropdownMenu() {
+        const toggleBtn = document.querySelector("#nav-toggle");
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+
+        if (!toggleBtn || !dropdownMenu) {
+          console.warn("Navbar toggle or dropdown menu not found!");
+          return;
+        }
+
+        toggleBtn.addEventListener("click", function (event) {
+          dropdownMenu.classList.toggle("active");
+          event.stopPropagation();
+        });
+
+        document.addEventListener("click", function (event) {
+          const target = event.target;
+          if (!dropdownMenu.contains(target) && target !== toggleBtn) {
+            dropdownMenu.classList.remove("active");
+          }
+        });
+      }
       const sunIcon = `
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-  stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="12" cy="12" r="4"></circle>
-  <path d="M12 2v2"></path>
-  <path d="M12 20v2"></path>
-  <path d="m4.93 4.93 1.41 1.41"></path>
-  <path d="m17.66 17.66 1.41 1.41"></path>
-  <path d="M2 12h2"></path>
-  <path d="M20 12h2"></path>
-  <path d="m6.34 17.66-1.41 1.41"></path>
-  <path d="m19.07 4.93-1.41 1.41"></path>
-</svg>`;
+           <svg
+          id="sunIcon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="black"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+            id="circle1"
+            style="stroke:#1f1f28;stroke-opacity:1"></circle>
+          <path d="M12 2v2" id="path1" style="stroke:#1f1f28;stroke-opacity:1"
+          ></path>
+          <path d="M12 20v2" id="path2" style="stroke:#1f1f28;stroke-opacity:1"
+          ></path>
+          <path
+            d="m4.93 4.93 1.41 1.41"
+            id="path3"
+            style="stroke:#1f1f28;stroke-opacity:1"></path>
+          <path
+            d="m17.66 17.66 1.41 1.41"
+            id="path4"
+            style="stroke:#1f1f28;stroke-opacity:1"></path>
+          <path d="M2 12h2" id="path5" style="stroke:#1f1f28;stroke-opacity:1"
+          ></path>
+          <path d="M20 12h2" id="path6" style="stroke:#1f1f28;stroke-opacity:1"
+          ></path>
+          <path
+            d="m6.34 17.66-1.41 1.41"
+            id="path7"
+            style="stroke:#1f1f28;stroke-opacity:1"></path>
+          <path
+            d="m19.07 4.93-1.41 1.41"
+            id="path8"
+            style="stroke:#1f1f28;stroke-opacity:1"></path>
+        </svg>`;
 
       const moonIcon = `
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M21 12.79A9 9 0 0111.21 3a7 7 0 000 18A9 9 0 0121 12.79z"></path>
-</svg>`;
+        <svg
+          id="moonIcon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+        >
+          <path fill="white" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>`;
 
       const test = document.getElementById("test");
-      test.innerHTML = sunIcon;
+
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        //OS theme setting detected as dark
+        document.body.setAttribute("data-theme", "dark");
+        test.innerHTML = moonIcon;
+      }
+
       function toggleTheme() {
         if (document.body.getAttribute("data-theme") === "dark") {
           document.body.setAttribute("data-theme", "light");
