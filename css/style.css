@@ -1,16 +1,20 @@
 :root {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --header-bg: #a815a8;
+  --background-color: #f5e7de;
+  --text-color: #25211e;
+  --header-bg: #f2bfa4;
+  --button-bg: #f5e7de;
+  --button-fg: #25211e;
 }
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
-[data-theme="dark"] {
+[theme="dark"] {
   --background-color: #121212;
   --text-color: #ffffff;
   --header-bg: #44a815;
+  --button-fg: ;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  margin: 0%;
 }

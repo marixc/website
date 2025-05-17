@@ -15,9 +15,9 @@
         align-items: center;
         width: 40px;
         height: 40px;
-        background-color: #3f9c1b;
+        background-color: var(--button-bg);
         border-radius: 8px;
-        border: 1px solid #1f1f28;
+        border: 1px solid var(--button-fg);
         padding: 0;
         cursor: pointer;
       }
@@ -37,8 +37,8 @@
         padding: 0.5em 1em;
       }
       nav a {
-        color: aqua;
-        text-decoration: none;
+        color: var(--button-fg);
+        text-decoration: underline;
         padding: 1em;
       }
       body {
@@ -53,7 +53,7 @@
         position: absolute;
         right: 0;
         top: 100%;
-        background: rgba(255, 255, 255, 0.9);
+        background-color: var(--button-bg);
         width: 200px;
         display: none;
         flex-direction: column;
@@ -74,7 +74,9 @@
         width: 38px;
         height: 38px;
         background-color: transparent;
-        border: 1px solid #ceebc2;
+        background-color: var(--button-bg);
+
+        border: 1px solid var(--button-fg);
         border-radius: 8px;
         display: flex;
         justify-content: center; /* center the icon horizontally */
@@ -206,20 +208,35 @@
       const navToggleBtn = document.getElementById("nav-toggle");
 
       // Initialize theme on load
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.body.setAttribute("data-theme", "dark");
-        modeIcon.innerHTML = moonIcon;
-      } else {
-        modeIcon.innerHTML = sunIcon;
+      function detectColors() {
+        if (localStorage.getItem("theme")) {
+          if (localStorage.getItem("theme") == "dark") {
+            document.body.setAttribute("theme", "dark");
+            modeIcon.innerHTML = moonIcon;
+          } else {
+            modeIcon.innerHTML = sunIcon;
+            localStorage.setItem("theme", "light");
+          }
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.body.setAttribute("theme", "dark");
+          modeIcon.innerHTML = moonIcon;
+          localStorage.setItem("theme", "dark");
+        } else {
+          modeIcon.innerHTML = sunIcon;
+          localStorage.setItem("theme", "light");
+        }
       }
+      detectColors();
 
       function toggleTheme() {
-        if (document.body.getAttribute("data-theme") === "dark") {
-          document.body.setAttribute("data-theme", "light");
+        if (document.body.getAttribute("theme") === "dark") {
+          document.body.setAttribute("theme", "light");
           modeIcon.innerHTML = sunIcon;
+          localStorage.setItem("theme", "light");
         } else {
-          document.body.setAttribute("data-theme", "dark");
+          document.body.setAttribute("theme", "dark");
           modeIcon.innerHTML = moonIcon;
+          localStorage.setItem("theme", "dark");
         }
       }
 
