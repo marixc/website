@@ -9,7 +9,7 @@
   </head>
   <body>
     <style>
-      .darkb {
+      .mode-button {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -17,7 +17,7 @@
         height: 40px;
         background-color: #3f9c1b;
         border-radius: 8px;
-        border: 1px solid #1f1f28; /* or any consistent color */
+        border: 1px solid #1f1f28;
         padding: 0;
         cursor: pointer;
       }
@@ -29,7 +29,7 @@
       }
       nav {
         width: 900px;
-        max-width: calc(100% - 2em); /* Ensures responsiveness */
+        max-width: calc(100% - 2em); /* ensures responsiveness */
         margin: auto;
         display: flex;
         align-items: center;
@@ -71,24 +71,23 @@
 
       .icon-container {
         display: inline-block;
-        width: 38px; /* Set to 40px to match the size of the sun and moon icons */
-        height: 38px; /* Set to 40px */
-        background-color: transparent; /* Make background transparent */
-        border: 1px solid #ceebc2; /* Apply a border (set color to green or any color you want) */
-        border-radius: 8px; /* Rounded corners for the box */
+        width: 38px;
+        height: 38px;
+        background-color: transparent;
+        border: 1px solid #ceebc2;
+        border-radius: 8px;
         display: flex;
-        justify-content: center; /* Center the icon horizontally */
-        align-items: center; /* Center the icon vertically */
-        transition: border-color 0.3s ease; /* Smooth transition for border color change */
+        justify-content: center; /* center the icon horizontally */
+        align-items: center; /* center the icon vertically */
+        transition: border-color 0.3s ease;
       }
       .dropdown-menu li {
         list-style: none;
         padding: 0.5rem 1rem;
       }
 
-      /* SVG Color based on theme */
       .icon-container svg path {
-        stroke: #3f9c1b; /* Default stroke color (matches the border) */
+        stroke: #3f9c1b;
       }
       .dropdown-menu a {
         text-decoration: none;
@@ -100,7 +99,7 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        position: relative; /* Ensures dropdown is positioned relative to this container */
+        position: relative;
       }
 
       .dropdown-menu a:hover {
@@ -115,7 +114,7 @@
           display: none;
         }
         #nav-toggle {
-          display: block; /* Show button on mobile */
+          display: block;
         }
       }
     </style>
@@ -158,105 +157,91 @@
             <li><a href="/personal-blog/about">About</a></li>
             <li><a href="/personal-blog/tags">Tags</a></li>
           </div>
-          <button class="darkb" id="test" onclick="toggleTheme()"></button>
+          <button
+            class="mode-button"
+            id="mode-icon"
+            onclick="toggleTheme()"
+          ></button>
         </div>
       </nav>
     </header>
     <script>
-      function toggleDropdownMenu() {
-        const toggleBtn = document.querySelector("#nav-toggle");
-        const dropdownMenu = document.querySelector(".dropdown-menu");
-
-        if (!toggleBtn || !dropdownMenu) {
-          console.warn("Navbar toggle or dropdown menu not found!");
-          return;
-        }
-
-        toggleBtn.addEventListener("click", function (event) {
-          dropdownMenu.classList.toggle("active");
-          event.stopPropagation();
-        });
-
-        document.addEventListener("click", function (event) {
-          const target = event.target;
-          if (!dropdownMenu.contains(target) && target !== toggleBtn) {
-            dropdownMenu.classList.remove("active");
-          }
-        });
-      }
       const sunIcon = `
-           <svg
-          id="sunIcon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="black"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle
-            cx="12"
-            cy="12"
-            r="4"
-            id="circle1"
-            style="stroke:#1f1f28;stroke-opacity:1"></circle>
-          <path d="M12 2v2" id="path1" style="stroke:#1f1f28;stroke-opacity:1"
-          ></path>
-          <path d="M12 20v2" id="path2" style="stroke:#1f1f28;stroke-opacity:1"
-          ></path>
-          <path
-            d="m4.93 4.93 1.41 1.41"
-            id="path3"
-            style="stroke:#1f1f28;stroke-opacity:1"></path>
-          <path
-            d="m17.66 17.66 1.41 1.41"
-            id="path4"
-            style="stroke:#1f1f28;stroke-opacity:1"></path>
-          <path d="M2 12h2" id="path5" style="stroke:#1f1f28;stroke-opacity:1"
-          ></path>
-          <path d="M20 12h2" id="path6" style="stroke:#1f1f28;stroke-opacity:1"
-          ></path>
-          <path
-            d="m6.34 17.66-1.41 1.41"
-            id="path7"
-            style="stroke:#1f1f28;stroke-opacity:1"></path>
-          <path
-            d="m19.07 4.93-1.41 1.41"
-            id="path8"
-            style="stroke:#1f1f28;stroke-opacity:1"></path>
-        </svg>`;
+    <svg
+      id="sunIcon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="black"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="4" style="stroke:#1f1f28;"></circle>
+      <path d="M12 2v2" style="stroke:#1f1f28;"></path>
+      <path d="M12 20v2" style="stroke:#1f1f28;"></path>
+      <path d="m4.93 4.93 1.41 1.41" style="stroke:#1f1f28;"></path>
+      <path d="m17.66 17.66 1.41 1.41" style="stroke:#1f1f28;"></path>
+      <path d="M2 12h2" style="stroke:#1f1f28;"></path>
+      <path d="M20 12h2" style="stroke:#1f1f28;"></path>
+      <path d="m6.34 17.66-1.41 1.41" style="stroke:#1f1f28;"></path>
+      <path d="m19.07 4.93-1.41 1.41" style="stroke:#1f1f28;"></path>
+    </svg>`;
 
       const moonIcon = `
-        <svg
-          id="moonIcon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-        >
-          <path fill="white" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-        </svg>`;
+    <svg
+      id="moonIcon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+    >
+      <path fill="white" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>`;
 
-      const test = document.getElementById("test");
+      const modeIcon = document.getElementById("mode-icon");
+      const dropdownMenu = document.querySelector(".dropdown-menu");
+      const navToggleBtn = document.getElementById("nav-toggle");
 
+      // Initialize theme on load
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        //OS theme setting detected as dark
         document.body.setAttribute("data-theme", "dark");
-        test.innerHTML = moonIcon;
+        modeIcon.innerHTML = moonIcon;
+      } else {
+        modeIcon.innerHTML = sunIcon;
       }
 
       function toggleTheme() {
         if (document.body.getAttribute("data-theme") === "dark") {
           document.body.setAttribute("data-theme", "light");
-          test.innerHTML = sunIcon;
+          modeIcon.innerHTML = sunIcon;
         } else {
           document.body.setAttribute("data-theme", "dark");
-          test.innerHTML = moonIcon;
+          modeIcon.innerHTML = moonIcon;
         }
       }
+
+      function toggleDropdownMenu() {
+        dropdownMenu.classList.toggle("active");
+      }
+
+      // close dropdown if clicked outside
+      // e.g.      document.addEventListener("keydown", function(event) {
+      //   // ...
+      // });
+      // then the thisEvent inside your function would be a keyboard event instead.
+      document.addEventListener("click", function (thisEvent) {
+        if (
+          dropdownMenu.classList.contains("active") &&
+          !dropdownMenu.contains(thisEvent.target) &&
+          // without this dropdownMenu will never open
+          !navToggleBtn.contains(thisEvent.target)
+        ) {
+          dropdownMenu.classList.remove("active");
+        }
+      });
     </script>
   </body>
 </html>
