@@ -133,7 +133,7 @@ class Header extends HTMLElement {
           <h2>Hello</h2>
           <div class="internal-links">
             <a href="about.html">About</a>
-            <a href="work.html">Work</a>
+            <a href="posts.html">Posts</a>
             <a href="contact.html">Contact</a>
           </div>
           <div class="hello">

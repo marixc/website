@@ -7,16 +7,36 @@
     <link href="css/style.css" rel="stylesheet" />
     <script src="js/components/header.js" type="text/javascript" defer></script>
     <script src="js/components/footer.js" type="text/javascript" defer></script>
+    <script type="module" src="js/components/postCard.js"></script>
   </head>
   <body>
     <header-component></header-component>
     <main>
-      <h1>Hi there</h1>
+      <h1>Welcome to my Site</h1>
+      <p>Nothing fancy to see here things are still under production</p>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur
-        commodi cumque hic tenetur incidunt vel omnis quisquam architecto ut, a
-        sit, porro quae culpa! Laborum recusandae sed sapiente voluptates culpa?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+        minima quos reiciendis veniam non! Culpa rem id laboriosam perspiciatis
+        sequi sit? Assumenda aliquid ullam cupiditate aut accusantium eum
+        voluptatum recusandae!
       </p>
+      <ul>
+        <li>
+          <a href="posts/md1.html">post one</a>
+        </li>
+        <li>
+          <a href="posts/md2.html">post two</a>
+        </li>
+        <li>
+          <post-card
+            title="Post Title"
+            href="posts/md1.html"
+            description="Short description of post"
+            img="images/post1.jpg"
+          >
+          </post-card>
+        </li>
+      </ul>
     </main>
     <footer-component></footer-component>
   </body>

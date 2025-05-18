@@ -48,7 +48,7 @@ class Footer extends HTMLElement {
           </svg>
         </a>
         <a href="nowhere" target="_blank">
-          <span class="sr-only">Follow Astro on Twitter</span>
+          <span class="sr-only">Follow on Twitter</span>
           <svg
             viewBox="0 0 16 16"
             aria-hidden="true"
