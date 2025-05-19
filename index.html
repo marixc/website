@@ -10,9 +10,22 @@
     <script type="module" src="js/components/postCard.js"></script>
   </head>
   <body>
+    <style>
+      #fixed-img {
+        width: 500px;
+        height: 500px;
+        object-fit: contain; /* or "cover" depending on desired behavior */
+      }
+      #logo {
+        width: 500px;
+        height: 500px;
+        object-fit: contain; /* or "cover" depending on desired behavior */
+      }
+    </style>
     <header-component></header-component>
     <main>
       <h1>Welcome to my Site</h1>
+      <img src="images/logo.png" alt="" id="fixed-img" />
       <p>Nothing fancy to see here things are still under production</p>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
@@ -32,7 +45,7 @@
             title="Post Title"
             href="posts/md1.html"
             description="Short description of post"
-            img="images/post1.jpg"
+            img=""
           >
           </post-card>
         </li>
