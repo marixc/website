@@ -41,11 +41,6 @@ main {
   color: #3f9c1b;
   text-decoration: underline;
 }
-.containerr {
-  display: flex;
-  align-items: center; /* Vertically align image and h1 */
-  gap: 10px; /* Optional spacing between them */
-}
 /* header */
 .mode-button {
   display: flex;
