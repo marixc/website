@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/components/header.js" type="text/javascript" defer></script>
+    <script src="js/components/footer.js" type="text/javascript" defer></script>
+    <script type="module" src="js/components/postCard.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <style>
+        #fixed-img {
+          width: 500px;
+          height: 500px;
+          object-fit: contain; /* or "cover" depending on desired behavior */
+        }
+        #logo {
+          width: 500px;
+          height: 500px;
+          object-fit: contain; /* or "cover" depending on desired behavior */
+        }
+      </style>
+      <header-component></header-component>
+      <main class="page-body">
+        <h1>Welcome to my Site</h1>
+        <img src="images/logo.png" alt="" id="fixed-img" />
+        <p>Nothing fancy to see here things are still under production</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
+          minima quos reiciendis veniam non! Culpa rem id laboriosam
+          perspiciatis sequi sit? Assumenda aliquid ullam cupiditate aut
+          accusantium eum voluptatum recusandae!
+        </p>
+        <ul>
+          <li>
+            <a href="posts/md1.html">post one</a>
+          </li>
+          <li>
+            <a href="posts/md2.html">post two</a>
+          </li>
+          <li>
+            <post-card
+              title="Post Title"
+              href="posts/md1.html"
+              description="Short description of post"
+              img=""
+            >
+            </post-card>
+          </li>
+        </ul>
+      </main>
+      <footer-component></footer-component>
+    </div>
+  </body>
+</html>
