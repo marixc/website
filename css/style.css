@@ -47,8 +47,15 @@ main {
 }
 /* header */
 .logo {
-  width: 33px;
+  width: 25px;
   height: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
+.hey {
+    margin: 0px;
+    padding: 0px;
 }
 .mode-button {
   display: flex;
