@@ -13,7 +13,7 @@
   --text-color: #f5f5f7;
   --header-bg: rgb(20, 20, 22, 0.8);
   --header-border: #363638;
-  --logo-fg: #b2b2b2;
+  --logo-fg: #f5f5f7;
   --button-bo: #6e6e73;
 }
 
@@ -47,7 +47,7 @@ main {
 }
 /* header */
 .logo {
-  width: 25px;
+  width: 23px;
   height: auto;
   margin: 0px;
   padding: 0px;
