@@ -1,15 +1,17 @@
 :root {
-  --background-color: #f5e7de;
-  --text-color: #25211e;
-  --header-bg: #f2bfa4;
+  --background-color: #fbfbfb;
+  --text-color: #1d1d1f;
+  --header-bg: rgb(255, 255, 255, 0.5);
+  --header-border: #e4e4e5;
   --button-bg: #f5e7de;
   --button-fg: #25211e;
 }
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
 [theme="dark"] {
-  --background-color: #121212;
-  --text-color: #ffffff;
-  --header-bg: #44a815;
+  --background-color: #000000;
+  --text-color: #f5f5f7;
+  --header-bg: rgb(20, 20, 22, 0.8);
+  --header-border: #363638;
   --button-fg: ;
 }
 
@@ -42,6 +44,10 @@ main {
   text-decoration: underline;
 }
 /* header */
+.logo {
+  width: 33px;
+  height: auto;
+}
 .mode-button {
   display: flex;
   justify-content: center;
@@ -54,12 +60,12 @@ main {
   padding: 0;
   cursor: pointer;
 }
-header {
+/* header {
   background: var(--header-bg);
   position: sticky;
   margin: 0;
   padding: 0;
-}
+} */
 nav {
   width: 900px;
   max-width: calc(100% - 2em);
@@ -205,6 +211,10 @@ header {
   background: var(--header-bg);
   position: sticky;
   top: 0;
+  /* box-shadow: 0 2px 8px rgba(var(--black), 5%); */
+  backdrop-filter: blur(9px); /* Apply blur effect */
+  transition: background 0.3s ease-in-out; /* Smooth transition */
+  border-bottom: 1px solid var(--header-border);
 }
 /* .page-body p {
   border: 1px solid grey;
