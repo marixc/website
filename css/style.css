@@ -3,8 +3,9 @@
   --text-color: #1d1d1f;
   --header-bg: rgb(255, 255, 255, 0.5);
   --header-border: #e4e4e5;
-  --button-bg: #f5e7de;
-  --button-fg: #25211e;
+  --logo-fg: #1d1d1f;
+  --button-bg: #0071e3;
+  --button-bo: #6e6e73;
 }
 /* CSS attribute selector, selecting any element that has the attribute data-theme="dark". */
 [theme="dark"] {
@@ -12,7 +13,8 @@
   --text-color: #f5f5f7;
   --header-bg: rgb(20, 20, 22, 0.8);
   --header-border: #363638;
-  --button-fg: ;
+  --logo-fg: #b2b2b2;
+  --button-bo: #6e6e73;
 }
 
 /* make footer stick */
@@ -56,7 +58,7 @@ main {
   height: 40px;
   background-color: var(--button-bg);
   border-radius: 8px;
-  border: 1px solid var(--button-fg);
+  border: none;
   padding: 0;
   cursor: pointer;
 }
@@ -76,8 +78,8 @@ nav {
   padding: 0.5em 1em;
 }
 nav a {
-  color: var(--button-fg);
-  text-decoration: underline;
+  color: var(--button-bo);
+  text-decoration: none;
   padding: 1em;
 }
 h2 {
@@ -106,8 +108,8 @@ h2 {
   display: inline-block;
   width: 38px;
   height: 38px;
-  background-color: var(--button-bg);
-  border: 1px solid var(--button-fg);
+  background-color: none;
+  border: 1px solid var(--button-bo);
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -115,7 +117,7 @@ h2 {
   transition: border-color 0.3s ease;
 }
 .icon-container svg path {
-  stroke: #3f9c1b;
+  stroke: var(--button-bo);
 }
 .dropdown-menu li {
   list-style: none;
