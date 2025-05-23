@@ -29,9 +29,14 @@ body {
   flex-direction: column;
 }
 
-footer {
+footer-component {
   margin-top: auto;
+  padding: 2em 1em 6em 1em;
+  background: linear-gradient(var(--gray-gradient)) no-repeat;
+  color: rgb(var(--gray));
+  text-align: center;
 }
+
 main {
   width: 720px;
   max-width: calc(100% - 2em);
@@ -43,6 +48,7 @@ main {
   grid-template-rows: auto 1fr auto;
   grid-template-columns: minmax(0, 1fr); */
 }
+
 #title {
   color: #3f9c1b;
   text-decoration: underline;
@@ -169,13 +175,6 @@ h2 {
 
 /* footer */
 
-footer {
-  padding: 2em 1em 6em 1em;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
-  color: rgb(var(--gray));
-  text-align: center;
-}
-
 .social-links {
   display: flex;
   justify-content: center;
@@ -226,7 +225,17 @@ body {
   flex-grow: 1;
 }
 
-header {
+/* asign style to top component instead of header */
+/* header {
+  background: var(--header-bg);
+  position: sticky;
+  top: 0;
+
+  backdrop-filter: blur(9px);
+  transition: background 0.3s ease-in-out;
+  border-bottom: 1px solid var(--header-border);
+} */
+header-component {
   background: var(--header-bg);
   position: sticky;
   top: 0;
