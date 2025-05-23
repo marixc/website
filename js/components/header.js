@@ -18,7 +18,7 @@ class HeaderComponent extends HTMLElement {
         </div>
         <div class="hello">
           <button class="mode-button" id="mode-icon" aria-label="Toggle Theme"></button>
-          <button onclick="toggleDropdownMenu()" id="nav-toggle" aria-label="Toggle Navigation">
+          <button id="nav-toggle" aria-label="Toggle Navigation">
             <div class="icon-container">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
                 <path
@@ -115,11 +115,7 @@ class HeaderComponent extends HTMLElement {
 
     // Initialize theme icon on load
     detectColors();
-
-    // Expose toggle functions for inline HTML handlers if needed
-    window.toggleTheme = toggleTheme;
-    window.toggleDropdownMenu = toggleDropdownMenu;
-  }
+    }
 }
 
 customElements.define("header-component", HeaderComponent);
