@@ -115,7 +115,7 @@ class HeaderComponent extends HTMLElement {
 
     // Initialize theme icon on load
     detectColors();
-    }
+  }
 }
 
 customElements.define("header-component", HeaderComponent);

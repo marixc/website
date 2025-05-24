@@ -14,7 +14,7 @@
   --background-color: #181616;
   --text-color: #dcd7ba;
   --nav-fg: #c8c093;
-  --header-bg: rgb(20, 20, 22, 0.8);
+  --header-bg: rgb(24, 22, 22, 0.8);
   --drop-bg: #363646;
   --highlight: #54546d;
   /* --header-border: #363638; */
@@ -43,7 +43,7 @@ footer-component {
   text-align: center;
 }
 
-#find {
+.underl {
   text-decoration-line: underline;
   text-decoration-color: var(--hamburger-bo);
   text-decoration-thickness: 3px;
@@ -97,14 +97,14 @@ body[theme="dark"] .logo-dark {
 
 .bubble {
   background-color: var(--buble);
-  border-radius: 4px;
-  padding: 0.5rem 0.5rem;
+  border-radius: 6px;
+  padding: 2% 2%;
   justify-content: center;
 
   display: flex;
-  max-width: calc(100% - 9em);
-  margin: 0 auto;
+  margin: 5% 0;
 }
+
 .mode-button {
   display: flex;
   justify-content: center;
