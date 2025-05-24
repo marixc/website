@@ -49,23 +49,23 @@ class HeaderComponent extends HTMLElement {
     const sunIcon = `
       <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg"
         width="20" height="20" viewBox="0 0 24 24" fill="none"
-        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="4" style="stroke:white;"></circle>
-        <path d="M12 2v2" style="stroke:white;"></path>
-        <path d="M12 20v2" style="stroke:white;"></path>
-        <path d="m4.93 4.93 1.41 1.41" style="stroke:white;"></path>
-        <path d="m17.66 17.66 1.41 1.41" style="stroke:white;"></path>
-        <path d="M2 12h2" style="stroke:white;"></path>
-        <path d="M20 12h2" style="stroke:white;"></path>
-        <path d="m6.34 17.66-1.41 1.41" style="stroke:white;"></path>
-        <path d="m19.07 4.93-1.41 1.41" style="stroke:white;"></path>
+        stroke="#181616" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4" style="stroke:#181616;"></circle>
+        <path d="M12 2v2" style="stroke:#181616;"></path>
+        <path d="M12 20v2" style="stroke:#181616;"></path>
+        <path d="m4.93 4.93 1.41 1.41" style="stroke:#181616;"></path>
+        <path d="m17.66 17.66 1.41 1.41" style="stroke:#181616;"></path>
+        <path d="M2 12h2" style="stroke:#181616;"></path>
+        <path d="M20 12h2" style="stroke:#181616;"></path>
+        <path d="m6.34 17.66-1.41 1.41" style="stroke:#181616;"></path>
+        <path d="m19.07 4.93-1.41 1.41" style="stroke:#181616;"></path>
       </svg>
     `;
 
     const moonIcon = `
       <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg"
         width="20" height="20" viewBox="0 0 24 24">
-        <path fill="#f5f5f7" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        <path fill="#181616" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
       </svg>
     `;
 
@@ -76,21 +76,21 @@ class HeaderComponent extends HTMLElement {
     function detectColors() {
       if (localStorage.getItem("theme") === "dark") {
         document.body.setAttribute("theme", "dark");
-        modeIcon.innerHTML = moonIcon;
+        modeIcon.innerHTML = sunIcon;
       } else {
         document.body.setAttribute("theme", "light");
-        modeIcon.innerHTML = sunIcon;
+        modeIcon.innerHTML = moonIcon;
       }
     }
 
     function toggleTheme() {
       if (document.body.getAttribute("theme") === "dark") {
         document.body.setAttribute("theme", "light");
-        modeIcon.innerHTML = sunIcon;
+        modeIcon.innerHTML = moonIcon;
         localStorage.setItem("theme", "light");
       } else {
         document.body.setAttribute("theme", "dark");
-        modeIcon.innerHTML = moonIcon;
+        modeIcon.innerHTML = sunIcon;
         localStorage.setItem("theme", "dark");
       }
     }
