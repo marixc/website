@@ -43,6 +43,13 @@ footer-component {
   text-align: center;
 }
 
+#find {
+  text-decoration-line: underline;
+  text-decoration-color: var(--hamburger-bo);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 2px;
+}
+
 main {
   width: 720px;
   max-width: calc(100% - 2em);
